@@ -39,7 +39,7 @@ export class ModalHeroComponent {
     def: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
     speed: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
     hp: ['', [Validators.required, Validators.pattern("^[0-9]*$"),]],
-    status: [false, []],
+    status: [{value: false}, []],
 
   })
 

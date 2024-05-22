@@ -3,11 +3,12 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Hero } from '../../interfaces/hero';
 import { ModalResponse } from '../../interfaces/modal-response';
 import { HeroService } from '../../services/hero.service';
+import { AlertComponent } from '../alert/alert.component';
 import { ModalHeroComponent } from '../modal-hero/modal-hero.component';
 @Component({
   selector: 'app-hero-list',
   standalone: true,
-  imports: [CommonModule, ModalHeroComponent],
+  imports: [CommonModule, ModalHeroComponent, AlertComponent],
   templateUrl: './hero-list.component.html',
   styleUrl: './hero-list.component.css'
 })
@@ -19,6 +20,7 @@ export class HeroListComponent implements AfterViewInit {
 
   @ViewChild('modalHero') modalComponent!: ModalHeroComponent;
 
+  @ViewChild('alert') alertComponent!: AlertComponent;
 
   constructor(private heroService: HeroService)
   {
@@ -101,6 +103,20 @@ export class HeroListComponent implements AfterViewInit {
 
   }
 
+  public deleteMode(hero: Hero): void
+  {
+    this.selectedHeroe = hero;
+    this.alertComponent.openAlert();
+
+  }
+
+  public deleteControl(): void
+  {
+
+    this.deleteHero(this.selectedHeroe);
+
+  }
+
   public modalControl(response: ModalResponse): void
   {
     console.log(response)
@@ -108,14 +124,12 @@ export class HeroListComponent implements AfterViewInit {
     switch(response.type)
     {
       case('add'):
+      this.addHero(response.hero)
       break;
     
     case('edit'):
       this.editHero(response.hero)
      break;      
-
-    case('view'):    
-      break;
     }
 
   }

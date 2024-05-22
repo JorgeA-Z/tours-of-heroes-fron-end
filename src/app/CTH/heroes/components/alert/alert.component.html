@@ -1,0 +1,32 @@
+@if(isModalOpen)
+{
+    <div class="fixed z-40 left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 py-10 ">
+        <div class="p-4 mb-4 text-black border border-gray-300 rounded-lg bg-white dark:bg-gray-800 dark:text-black dark:border-white">
+            <div class="flex items-center">
+              <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+              </svg>
+              <span class="sr-only">Info</span>
+              <h3 class="text-lg font-medium">This is a danger alert</h3>
+            </div>
+            <div class="mt-2 mb-4 text-sm">
+              More info about this info danger goes here. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+            </div>
+            <button
+            (click)="closeAlert()"
+              type="button"
+              class="mr-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Aceptar
+            </button>
+    
+            <button
+            (click)="closeAlert()"
+              type="button"
+              class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+            >
+            Cancelar
+          </button>
+          </div>
+    </div>
+}
