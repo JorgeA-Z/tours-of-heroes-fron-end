@@ -1,0 +1,168 @@
+@if(isModalOpen)
+{
+  <div
+    class="fixed z-40 left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 py-10 "
+  >
+    <div class="p-6 w-3/5">
+      <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:border-gray-700 dark:bg-gray-800">
+        <div class="bg-gray-100 border-b dark:border-gray-700 rounded-t-xl pt-3 px-4 md:pt-4 md:px-5  dark:bg-gray-700 dark:text-gray-400">
+          <nav class="flex" aria-label="Tabs">
+            <h3>{{type}}</h3>
+          </nav>
+        </div>
+  
+        <div class="p-4 md:py-7 md:px-5">
+          <form [formGroup]="moduleForm">
+
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+              <div>
+                <label
+                  for="ID"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >ID</label
+                >
+                <input
+                  formControlName="ID"
+                  type="text"
+                  id="first_name"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
+              </div>
+              
+              <div>
+                <label
+                  for="name"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Nombre</label
+                >
+                <input
+                formControlName="name"
+                  type="text"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
+                  
+                  @if( submitted && moduleForm.controls['name'].getError('required')) 
+                  {
+                    <p class="pl-2 mt-2 text-xs text-red-600">
+                      Introduzca un nombre al heroe.
+                    </p>
+                  }
+
+                  @if( submitted && moduleForm.controls['name'].hasError('minlength')) 
+                  {
+                    <p class="pl-2 mt-2 text-xs text-red-600">
+                      El nombre del heroe debe tener al menos 3 caracteres.
+                    </p>
+                  }
+
+              </div>
+              <div>
+                <label
+                  for="ATT"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >ATT</label
+                >
+                <input
+                  formControlName="att"
+                  type="number"
+                  id="company"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              
+                  />
+
+                  @if( submitted && moduleForm.controls['att'].getError('required')) 
+                  {
+                    <p class="pl-2 mt-2 text-xs text-red-600">
+                      Introduzca un att al heroe.
+                    </p>
+                  }
+
+              </div>
+              <div>
+                <label
+                  for="DEF"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >DEF</label
+                >
+                <input
+                  formControlName="def"
+                  type="number"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
+                  
+                  @if( submitted && moduleForm.controls['def'].getError('required')) 
+                  {
+                    <p class="pl-2 mt-2 text-xs text-red-600">
+                      Introduzca un def al heroe.
+                    </p>
+                  }
+              </div>
+              <div>
+                <label
+                  for="SPEED"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >SPEED</label
+                >
+                <input
+                  formControlName="speed"
+                  type="number"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
+                  @if( submitted && moduleForm.controls['speed'].getError('required')) 
+                  {
+                    <p class="pl-2 mt-2 text-xs text-red-600">
+                      Introduzca un speed al heroe.
+                    </p>
+                  }
+              </div>
+              <div>
+                <label
+                  for="HP"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >HP</label
+                >
+                <input
+                  formControlName="hp"
+                  type="number"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
+
+                  @if( submitted && moduleForm.controls['hp'].getError('required')) 
+                  {
+                    <p class="pl-2 mt-2 text-xs text-red-600">
+                      Introduzca un hp al heroe.
+                    </p>
+                  }
+
+              </div>
+            </div>
+            <div class="flex items-start mb-6">
+              <div class="flex items-center h-5">
+              <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required />
+              </div>
+              <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Status</label>
+          </div>
+  
+            <button
+            (click)="sendOption(true)"
+              type="button"
+              class="mr-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Aceptar
+            </button>
+  
+            <button
+            (click)="sendOption(false)"
+              type="button"
+              class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+            >
+            Cancelar
+          </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+}
+

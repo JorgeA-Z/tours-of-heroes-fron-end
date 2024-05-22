@@ -1,0 +1,70 @@
+
+
+<app-modal-hero #modalHero (operacion)="modalControl($event)" type="add"></app-modal-hero>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nombre
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Att
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Def
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Speed
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    HP
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    STATUS
+                </th>
+                <th scope="col" class="px-6 py-3 text-right">
+                    <span>Actions</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(hero of heroes; track hero.id)
+            {
+
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{hero.id}}
+                    </th>
+                    <td class="px-6 py-4">
+                        <button (click)="viewMode(hero)" class="mr-1 font-medium text-blue-600 dark:text-blue-500 hover:underline">{{hero.name}}</button>
+                    </td>
+                    <td class="px-6 py-4">
+                        {{hero.att}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{hero.def}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{hero.speed}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{hero.hp}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{hero.status}}
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <button (click)="editMode(hero)" class="mr-1 font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+</div>
